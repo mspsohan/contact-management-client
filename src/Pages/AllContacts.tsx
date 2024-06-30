@@ -1,32 +1,35 @@
+// src/Pages/AllContacts.tsx
+
 import { useEffect, useState, FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useGetContactsQuery } from '../app/contactApi';
-import ContactList from '../components/contactList';
 import { RootState } from '../app/store';
-import Contact from "../model/Contact";
+import { Contact } from "../model/Contact";
+import ContactList from '../components/contactList';
 
 const AllContacts: FC = () => {
-   const [contactListData, setContactListData] = useState<[]>([]);
+   const [contactListData, setContactListData] = useState<Contact[]>([]);
 
    const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
-   const { data: contacts, isLoading, error } = useGetContactsQuery();
+   const { data, isLoading, error } = useGetContactsQuery();
 
    useEffect(() => {
-      if (contacts) {
-         setContactListData(contacts);
+      if (data) {
+         setContactListData(data?.contacts);
       }
-   }, [contacts]);
-
+   }, [data]);
 
    useEffect(() => {
-      if (contacts) {
-         const filteredData = contacts?.filter((item: Contact) => item.name.toLowerCase().includes(searchTerm));
+      if (data && data?.contacts) {
+         const filteredData = data?.contacts?.filter((item: Contact) =>
+            item.name.toLowerCase().includes(searchTerm.toLowerCase())
+         );
          setContactListData(filteredData);
       }
-   }, [contacts, searchTerm]);
+   }, [data, searchTerm]);
 
    if (isLoading) return <div>Loading...</div>;
-   if (error instanceof Error) return <div>Error: {error.message}</div>;
+   if (error instanceof Error) return <div>Error: {error?.message}</div>;
 
    return (
       <div>

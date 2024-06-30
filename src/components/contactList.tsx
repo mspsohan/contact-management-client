@@ -1,8 +1,8 @@
 import { useState } from "react";
 import ContactInfo from "../components/contactInfo";
-import Contact from "../model/Contact";
 import NewContact from "./NewContact";
 import DialogBox from "./DialogBox";
+import { Contact } from "../model/Contact";
 
 interface ContactProps {
   contacts: Contact[] | undefined;

@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { BsFillPenFill, BsFillTrashFill, BsFillCalendar3WeekFill, BsReplyAllFill, BsShareFill, BsMailbox2, BsTelephoneFill } from "react-icons/bs";
 import { GrMapLocation } from "react-icons/gr";
-import Contact from "../model/Contact";
+
 import { useRemoveContactMutation } from "../app/contactApi";
+import { Contact } from "../model/Contact";
 
 interface ContactProps {
   contact: Contact;

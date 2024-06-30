@@ -7,7 +7,7 @@ const App: FC = () => {
   return (
     <div>
       <Header />
-      <div className="p-10 w-full min:h-[85vh] overflow-auto bg-gradient-to-tr from-green-200 via-indigo-200 to-pink-200">
+      <div className="p-10 w-full min-h-[87vh] overflow-auto bg-gradient-to-tr from-green-200 via-indigo-200 to-pink-200">
         <Outlet />
       </div>
       <Footer />
