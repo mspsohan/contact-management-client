@@ -4,7 +4,7 @@ This project is a contact management application built using React, Redux, and V
 
 ## Live Demo
 
-You can view the live demo of the [Contact Management App](https://contact-management-sp.netlify.app).
+You can view the live demo of the [Contact Management App](https://sp-contact-management.vercel.app).
 
 ## Features
 
